@@ -12,8 +12,7 @@ class Solution{
     public:
     int digitsInFactorial(int n)
     {
-        // code here
-         // code here
+        //f(x) = ( n* log10(( n/ e)) + log10(2*pi*n)/2 ) / log10(b)
      if (n < 0) 
         return 0; 
   
