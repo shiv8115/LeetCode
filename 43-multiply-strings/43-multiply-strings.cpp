@@ -13,10 +13,15 @@ public:
         sum[i] += carry;
     }
     
-    size_t startpos = sum.find_first_not_of("0");
-    if (string::npos != startpos) {
-        return sum.substr(startpos);
-    }
+    // size_t startpos = sum.find_first_not_of("0");
+    // if (string::npos != startpos) {
+    //     return sum.substr(startpos);
+    // }
+        const regex pattern("^0+(?!$)");
+ 
+    // Replaces the matched
+    // value with given string
+    return sum = regex_replace(sum, pattern, "");
     return "0";
         
     }
