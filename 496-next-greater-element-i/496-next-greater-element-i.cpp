@@ -3,18 +3,19 @@ public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
         unordered_map<int, int>mp;
         stack<int>st;
-        for(int x: nums2){
-            while(st.size() && x > st.top()){
-                mp[st.top()]=x;
+        vector<int>v;
+        for(int i=0;i<nums2.size();i++){
+            while(st.size() && nums2[i] >st.top()){
+                mp[st.top()]=nums2[i];
                 st.pop();
             }
-            st.push(x);
+            st.push(nums2[i]);
         }
-        vector<int>ans;
-        for(int x: nums1){
-         ans.push_back(mp.count(x)?mp[x]:-1);
+        for(int i=0;i<nums1.size();i++){
+            int temp= mp.count(nums1[i])? mp[nums1[i]]:-1;
+            v.push_back(temp);
         }
-        return ans;
+        return v;
         
     }
 };
