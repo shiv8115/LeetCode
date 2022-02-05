@@ -16,13 +16,13 @@ class Solution{
 	        int max=NULL;
 	        for(int j=0;j<i;j++){
 	            if(arr[i]>arr[j]){
-	                if(max==NULL) max=dp[j];
+	                if(max==NULL) max= dp[j];
 	                else if(dp[j] > max) max= dp[j];
 	            }
 	        }
 	        if(max==NULL) dp[i]= arr[i];
 	        else dp[i]= max+arr[i];
-	        if(dp[i] >osum) osum= dp[i];
+	        if(dp[i] > osum) osum=dp[i];
 	    }
 	    return osum;
 	}  
