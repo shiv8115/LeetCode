@@ -19,12 +19,11 @@ public:
             curr=curr->next;
         }
         sort(begin(v), end(v));
-        curr= new ListNode(-1);
-        curr=head;
-        ListNode* h= curr;
+        ListNode* h= new ListNode(-1);
+        h->next=head;
         for(int i=0;i<v.size();i++){
-            curr->next= new ListNode(v[i]);
-            curr=curr->next;
+            head->val= v[i];
+            head=head->next;
         }
         return h->next;
     }
