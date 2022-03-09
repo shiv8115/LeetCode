@@ -15,10 +15,14 @@ public:
         ListNode* prev= NULL, * new_head= NULL, *curr=head;
         while(curr!=NULL){
             if(curr->next && curr->val == curr->next->val){
-                while(curr->next && curr->val == curr->next->val) curr= curr->next;
+                while(curr->next && curr->val == curr->next->val) curr= curr->next;// skiping duplicate elements
+               
             }
             else{
-                if(new_head==NULL) new_head=curr;
+                if(new_head==NULL) {
+                    new_head=curr;
+                   
+                }
                 else  
                     prev->next=curr;
                 
