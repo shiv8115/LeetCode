@@ -1,17 +1,14 @@
 class Solution {
 public:
     int numSquares(int n) {
-        int dp[n+1];
-        dp[0]=0;
-        dp[1]=1;
-        for(int i=2;i<=n;i++){
-            int minm= INT_MAX;
-            for(int j=1;j*j<=i;j++){
-                int rem= i-(j*j);
-                if(dp[rem]<minm) minm= dp[rem];
-            }
-            dp[i]=minm+1;
+        if(ceil(sqrt(n))==floor(sqrt(n))) return 1;
+        while(n%4==0) n=n/4;
+        if(n%8==7) return 4;
+        for(int i=1;i*i<=n;i++){
+            int val= n- i*i;
+            int base=sqrt(val);
+            if(base*base==val) return 2;
         }
-        return dp[n];
+        return 3;
     }
 };
