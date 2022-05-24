@@ -30,7 +30,7 @@ class Solution{
                 left_prod*=arr[i];
             }else{
                 res[i]=left_prod;
-                left_prod*=arr[i];
+                //left_prod*=arr[i];
             }
         }
         return res;
