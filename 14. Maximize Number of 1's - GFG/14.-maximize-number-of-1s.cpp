@@ -10,30 +10,18 @@ public:
     // m is maximum of number zeroes allowed to flip
     // n is size of array
     int findZeroes(int arr[], int n, int m) {
-        // // code here
-         int i=0,count0=0,j=0,res;
-        for(j=0;j<n;j++){
-            if(arr[j]==0) count0++;
-            if(count0<=m)
-                res=max(res,j-i+1);
-                else{
+        // code here
+        int start=0, i, res=INT_MIN,count0=0;
+        for(int i=0;i<n;i++){
+            if(arr[i]==0) count0++;
+            if(count0<=m) res= max(res, i-start+1);
+            else{
                 while(count0>m){
-                    if(arr[i++]==0) count0--;
+                    if(arr[start++]==0) count0--;
                 }
             }
         }
         return res;
-        //  int i=0,count0=0,j=0,res;
-        // for(j=0;j<n;j++){
-        //     if(arr[j]==0) count0++;
-        //     if(count0<=m) res=max(res,j-i+1);
-        //     else{
-        //         while(count0>m){
-        //         if(arr[i++]==0) count0--;
-        //     }
-        //     }
-        // }
-        // return res;
     }  
 };
 
