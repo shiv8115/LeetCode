@@ -1,37 +1,27 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums, int x) {
-        int n=nums.size();
-        int left=0,right=0;
-        int sum=0;
-        int ans=-1;
-        for(int i=0;i<n;i++){
-            sum+=nums[i];
+         int n= nums.size();
+        int l=0,r=0, ans=-1, sum=0;
+        for(int i=0;i<n;i++) sum+=nums[i];
+        int curr= nums[0];
+        while(l<n && r<n){
+            if(curr< sum-x){
+                r++;
+                if(r==n) break;
+                curr+= nums[r];
+            }
+            if(curr> sum-x){
+                curr-= nums[l];
+                l++;
+            }
+            if(curr==sum-x){
+                ans= max(ans, r-l+1);
+                r++;
+                if(r==n) break;
+                curr+= nums[r];
+            }
         }
-         
-        cout<<sum;
-        int cur=nums[0];
-        while(left<n&&right<n){
-            if(cur<sum-x){
-                
-                right++;
-                if(right==n)break;
-                cur+=nums[right];
-            }
-            if(cur>sum-x){
-                
-                cur-=nums[left];
-                
-                left++;
-            }
-            if(cur==sum-x){
-                ans=max(ans,right-left+1);
-                right++;
-                if(right==n)break;
-                cur+=nums[right];
-            }
-            // cout<<cur<<endl;
-        }
-        return ans==-1?-1:n-ans;
+        return ans==-1? -1 : n-ans;
     }
 };
