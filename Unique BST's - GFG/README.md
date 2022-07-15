@@ -1,5 +1,5 @@
 # Unique BST's
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an integer. Find how many <strong>structurally unique binary search trees </strong>are there that stores the&nbsp;values from 1 to that integer (inclusive).&nbsp;</span></p>
 
@@ -31,7 +31,7 @@ possible BSTs
 <p>&nbsp;</p>
 
 <p><span style="font-size:18px"><strong>Your Task:</strong><br>
-You don't need to read input or print anything. Your task is to complete the function&nbsp;<strong>numTrees()</strong>&nbsp;which takes the integer N as input&nbsp;and returns the total number of Binary Search Trees possible with keys [1.....N] inclusive. Since the answer can be very large, return the <strong>answer modulo&nbsp;10e9 + 7</strong>.</span></p>
+You don't need to read input or print anything. Your task is to complete the function&nbsp;<strong>numTrees()</strong>&nbsp;which takes the integer N as input&nbsp;and returns the total number of Binary Search Trees possible with keys [1.....N] inclusive. Since the answer can be very large, return the <strong>answer modulo&nbsp;1e9 + 7</strong>.</span></p>
 
 <p><span style="font-size:18px"><strong>Expected Time Complexity:</strong>&nbsp;O(N<sup>2</sup>).<br>
 <strong>Expected Auxiliary Space:</strong>&nbsp;O(N).</span></p>
