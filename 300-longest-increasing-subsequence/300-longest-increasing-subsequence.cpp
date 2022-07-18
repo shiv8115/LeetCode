@@ -2,18 +2,13 @@ class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
         int n= nums.size();
-        int dp[n];
-        int osum=0;
+        vector<int>dp;
         for(int i=0;i<n;i++){
-            int max=0;
-            for(int j=0;j<i;j++){
-                if(nums[i]>nums[j]){
-                    if(dp[j] > max) max= dp[j];
-                }
-            }
-            dp[i]= max+1;
-            if(dp[i] > osum) osum= dp[i];
+            int x=nums[i];
+            auto it= lower_bound(dp.begin(), dp.end(),x);
+            if(it==dp.end()) dp.push_back(x);
+            else *it=x;
         }
-        return osum;
+        return dp.size();
     }
 };
