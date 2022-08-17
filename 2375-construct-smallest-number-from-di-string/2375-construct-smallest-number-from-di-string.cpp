@@ -1,20 +1,26 @@
 class Solution {
 public:
-    string smallestNumber(string pattern) {
-        int n = pattern.size();
-            string ans;
+    void Reverse(string &s, int i, int j){
+        while(i<=j){
+            swap(s[i],s[j]);
+            i++;
+            j--;
+        }
+    }
+    string smallestNumber(string p) {
+        int n = p.size();
+            string ans="";
             for(int i = 1; i < n+2; i++){
                 ans += i + '0';
             }
-            int j = 1;
-            for(int i = 0; i < n; i++){
-                int k = i;
-                while(k >= 0 && pattern[k] == 'D'){
-                    swap(ans[k+1], ans[k]);
-                    k--;
-                }
-
+         int start=0,i;
+        for(i=0;i<n;i++){
+            if(p[i]=='I'){
+                Reverse(ans,start,i);
+                start=i+1;
             }
-            return ans;
+        }
+        Reverse(ans,start,n);
+        return ans;
     }
 };
