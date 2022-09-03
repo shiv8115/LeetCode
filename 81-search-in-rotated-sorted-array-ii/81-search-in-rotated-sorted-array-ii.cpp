@@ -1,24 +1,22 @@
 class Solution {
 public:
-    bool search(vector<int>& arr, int x) {
-        int n=arr.size();
-        int low=0,high=n-1;
-        while(low<=high){
-            while(low<high && arr[low]==arr[low+1]) low++;
-            while(low<high && arr[high]==arr[high-1]) high--;
-            int mid= (low+high)/2;
-            if(arr[mid]==x) return true;
-            if(arr[low]<=arr[mid]){
-                if(x>=arr[low] && x<arr[mid])
-                    high=mid-1;
-                else
-                    low=mid+1;
+    bool search(vector<int>& arr, int key) {
+         int n= arr.size();
+        int l=0, h=n-1;
+        while(l<=h){
+            while(l<h && arr[l]==arr[l+1]) l++;
+            while(l<h && arr[h]==arr[h-1]) h--;
+            int mid= l+(h-l)/2;
+            if(arr[mid]==key) return true;
+            else if(arr[l]<=arr[mid]){
+                //left sorted
+                if(key>=arr[l] && key<arr[mid]) h=mid-1;
+                else l=mid+1;
             }
             else{
-                if(x>arr[mid] && x<=arr[high])
-                    low=mid+1;
-                else
-                    high=mid-1;
+                //right sorted
+                if(key>arr[mid] && key<=arr[h]) l=mid+1;
+                else h=mid-1;
             }
         }
         return false;
