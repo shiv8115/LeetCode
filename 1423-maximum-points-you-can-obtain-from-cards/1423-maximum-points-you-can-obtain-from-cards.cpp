@@ -1,15 +1,15 @@
 class Solution {
 public:
-    int maxScore(vector<int>& arr, int k) {
-         k=arr.size()-k;
-         int csum=0,sum=0,res=INT_MIN;
-         for(int i=0;i<arr.size();i++) sum+=arr[i];
-         for(int i=0;i<k;i++) csum+=arr[i];
-         res= max(res, sum- csum);
-         for(int i=k;i<arr.size();i++){
-            csum+=(arr[i]- arr[i-k]);
-            res= max(res,sum-csum);
+    int maxScore(vector<int>& card, int k) {
+         int csum=0, res= INT_MIN;
+         int sum= accumulate(card.begin(), card.end(),0);
+         k= card.size()-k;
+         for(int i=0;i<k;i++) csum+=card[i];
+         res= max(res, sum-csum);
+         for(int i=k;i<card.size();i++){
+            csum+=(card[i]- card[i-k]);
+            res= max(res, sum-csum);
         }
-       return res;
+        return res;
     }
 };
